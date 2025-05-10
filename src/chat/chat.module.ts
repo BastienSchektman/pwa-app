@@ -4,13 +4,15 @@ import ChatService from './chat.service';
 import { Chat, ChatSchema } from './chat.schema';
 import ChatRepository from './chat.repository';
 import UsersModule from '../users/users.module';
+import ChatGateway from './chat.gateway';
+
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Chat.name, schema: ChatSchema }]),
     forwardRef(() => UsersModule),
   ],
-  providers: [ChatService, ChatRepository],
+  providers: [ChatService, ChatRepository, ChatGateway],
   exports: [ChatService, ChatRepository],
 })
 export default class ChatModule {}
