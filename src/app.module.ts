@@ -26,6 +26,7 @@ import ChatGateway from './chat/chat.gateway';
     RumorsModule,
     ChatModule,
     LocationsModule,
-  ]
+  ],
+  providers: [ChatGateway],
 })
 export default class AppModule {}
